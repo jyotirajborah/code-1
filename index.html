@@ -33,9 +33,24 @@
     font-family: 'Cormorant Garamond', serif;
     overflow-x: hidden;
     cursor: default;
+    margin: 0 auto;
+    text-align: center;
   }
 
-  /* ─── CUSTOM SCROLLBAR ─── */
+  .shloka-section, .stats-section, .testimonials-section, .peek-section,
+  .schedule-section, .venue-section, .faq-section, .documentary-section {
+    text-align: left;
+  }
+  .shloka-inner, .quote-band-inner, .section-head, .attend-section { text-align: center; }
+  .shloka-section, .stats-section, .testimonials-section, .peek-section,
+  .schedule-section, .venue-section, .faq-section, .documentary-section {
+    text-align: left;
+  }
+  .shloka-inner, .quote-band-inner, .section-head, .attend-section { text-align: center; }
+  .venue-address, .venue-method-desc, .testimonial-text, .faq-answer,
+  .documentary-desc, .shloka-translation { text-align: left; }
+
+
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--brown-deep); }
   ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
@@ -47,11 +62,12 @@
     position: relative;
     height: 100vh; height: 100dvh;
     min-height: 580px; max-height: 900px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
     overflow: hidden;
     padding: 5rem 2rem 7rem;
-    width: 100%;
-    box-sizing: border-box;
+    width: 100%; box-sizing: border-box;
+    text-align: center;
   }
 
   /* Mandala background */
@@ -100,6 +116,7 @@
 
   .hero-content {
     position: relative; z-index: 10;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center;
     width: 100%; max-width: 700px;
     margin-left: auto; margin-right: auto;
@@ -168,11 +185,13 @@
   .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 20px 60px rgba(200,150,12,0.4); }
 
   .hero-scroll {
-    position: absolute; bottom: 2rem; left: 0; right: 0;
-    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    width: 100%;
+    gap: 0.5rem;
     color: rgba(200,150,12,0.5);
     font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.25em;
     animation: bounce 2s ease-in-out infinite;
+    margin-top: 2.5rem;
     text-align: center;
   }
   .hero-scroll::after {
@@ -729,9 +748,8 @@
     <p class="hero-subtitle">The Sacred Secret of Divine Knowledge</p>
     <p class="hero-dates">13th — 19th December 2025 &nbsp;·&nbsp; Kolkata</p>
     <a href="#register" class="hero-cta" id="register">Register Now &nbsp; ✦</a>
+    <div class="hero-scroll">Scroll</div>
   </div>
-
-  <div class="hero-scroll">Scroll</div>
 </section>
 
 <!-- SHLOKA -->
