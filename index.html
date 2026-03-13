@@ -44,9 +44,12 @@
 
   /* ─── HERO ─── */
   .hero {
-    position: relative; height: 100vh; min-height: 700px;
+    position: relative;
+    height: 100vh; height: 100dvh;
+    min-height: 580px; max-height: 900px;
     display: flex; align-items: center; justify-content: center;
     overflow: hidden;
+    padding: 5rem 2rem 7rem;
   }
 
   /* Mandala background */
@@ -590,23 +593,17 @@
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .stat-item:nth-child(2) { border-right: none; }
     .stat-item:nth-child(1), .stat-item:nth-child(2) { border-bottom: 1px solid rgba(200,150,12,0.15); }
-
     .testimonials-section { padding: 5rem 2rem; }
     .testimonials-track { grid-template-columns: 1fr; gap: 1.2rem; }
-
     .peek-section { padding: 5rem 2rem; }
     .peek-grid { grid-template-columns: 1fr; gap: 1rem; }
-
     .schedule-section { padding: 5rem 2rem; }
     .schedule-item { grid-template-columns: 1fr; gap: 0.6rem; padding: 1.5rem 0; }
     .schedule-badge { align-self: flex-start; width: fit-content; }
-
     .venue-section { padding: 5rem 2rem; }
     .venue-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-
     .attend-section { padding: 5rem 2rem; }
     .faq-section { padding: 5rem 2rem; }
-
     .documentary-section { padding: 5rem 2rem; }
     .shloka-section { padding: 4rem 0; }
     .quote-band { padding: 3rem 2rem; }
@@ -614,62 +611,84 @@
 
   /* ─── RESPONSIVE: MOBILE (max 600px) ─── */
   @media (max-width: 600px) {
-    /* Hero */
-    .hero { min-height: 100svh; }
-    .mandala-ring:nth-child(1) { width: 350px; height: 350px; }
-    .mandala-ring:nth-child(2) { width: 270px; height: 270px; }
-    .mandala-ring:nth-child(3) { width: 210px; height: 210px; }
-    .hero-eyebrow { font-size: 0.55rem; letter-spacing: 0.2em; flex-wrap: wrap; justify-content: center; }
-    .hero-eyebrow::before, .hero-eyebrow::after { width: 25px; }
-    .hero-dates { font-size: 0.65rem; letter-spacing: 0.15em; }
-    .hero-cta { padding: 0.9rem 2rem; font-size: 0.65rem; letter-spacing: 0.2em; }
-    .hero-scroll { bottom: 1.5rem; }
-
-    /* Stats */
-    .stats-section { padding: 0 1.2rem 3rem; }
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .stat-item { padding: 2rem 1rem; }
-
-    /* Shloka */
+    /* Hero: use auto height so no gap in iframes */
+    .hero { height: auto; min-height: 0; max-height: none; padding: 5rem 1.5rem 6rem; }
+    .hero-scroll { position: relative; bottom: auto; left: auto; transform: none; margin-top: 2rem; }
+    .mandala-ring:nth-child(1) { width: 310px; height: 310px; }
+    .mandala-ring:nth-child(2) { width: 245px; height: 245px; }
+    .mandala-ring:nth-child(3) { width: 185px; height: 185px; }
+    .hero-eyebrow { font-size: 0.52rem; letter-spacing: 0.18em; flex-wrap: wrap; }
+    .hero-eyebrow::before, .hero-eyebrow::after { width: 20px; }
+    .hero-dates { font-size: 0.62rem; letter-spacing: 0.12em; }
+    .hero-cta { padding: 0.9rem 2rem; font-size: 0.62rem; letter-spacing: 0.18em; }
+    .stats-section { padding: 0 1rem 3rem; }
+    .stat-item { padding: 1.8rem 0.8rem; }
     .shloka-inner { padding: 0 1.5rem; }
     .shloka-text { font-size: 1rem; }
     .shloka-translation { font-size: 0.9rem; }
-
-    /* Quote */
     .quote-band { padding: 2.5rem 1.5rem; }
     .quote-band-text { font-size: 1rem; }
-
-    /* Documentary */
-    .documentary-section { padding: 4rem 1.5rem; }
-    .documentary-title { font-size: 1.6rem; }
-    .documentary-desc { font-size: 0.95rem; }
-
-    /* Testimonials */
+    .documentary-section { padding: 3.5rem 1.5rem; }
+    .documentary-title { font-size: 1.5rem; }
+    .documentary-desc { font-size: 0.9rem; margin-bottom: 1.5rem; }
     .testimonials-section { padding: 4rem 1.5rem; }
     .testimonial-card { padding: 1.5rem; }
-
-    /* Peek */
     .peek-section { padding: 4rem 1.5rem; }
-
-    /* Schedule */
     .schedule-section { padding: 4rem 1.5rem; }
     .schedule-time { font-size: 1rem; }
     .schedule-event { font-size: 1rem; }
-
-    /* Venue */
     .venue-section { padding: 4rem 1.5rem; }
     .venue-method { gap: 1rem; padding: 1.2rem; }
-
-    /* Attend */
     .attend-section { padding: 4rem 1.5rem; }
     .attend-section::before { font-size: 15rem; }
-
-    /* FAQ */
     .faq-section { padding: 4rem 1.5rem; }
     .faq-question { font-size: 1rem; padding: 1.4rem 0; }
-
-    /* Section heads */
     .section-head { margin-bottom: 2.5rem; }
+  }
+
+  /* ─── WIX MOBILE BREAKPOINT (320–494px) ─── */
+  @media (max-width: 494px) {
+    .hero { padding: 4rem 1.2rem 5rem; }
+    .mandala-ring:nth-child(1) { width: 270px; height: 270px; }
+    .mandala-ring:nth-child(2) { width: 210px; height: 210px; }
+    .mandala-ring:nth-child(3) { width: 160px; height: 160px; }
+    .hero-eyebrow { font-size: 0.48rem; gap: 0.4rem; }
+    .hero-eyebrow::before, .hero-eyebrow::after { display: none; }
+    .hero-cta { padding: 0.8rem 1.5rem; font-size: 0.58rem; clip-path: polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); }
+    .stat-num { font-size: 1.9rem; }
+    .stat-label { font-size: 0.55rem; }
+    .stat-item { padding: 1.6rem 0.7rem; }
+    .section-title { font-size: 1.8rem; }
+    .quote-band { padding: 2rem 1.2rem; }
+    .quote-band-text { font-size: 0.92rem; }
+    .documentary-section { padding: 3rem 1.2rem; }
+    .documentary-title { font-size: 1.4rem; }
+    .documentary-desc { font-size: 0.85rem; }
+    .testimonials-section, .peek-section, .schedule-section,
+    .venue-section, .attend-section, .faq-section { padding: 3rem 1.2rem; }
+    .testimonial-card { padding: 1.2rem; }
+    .attend-title { font-size: 2rem; }
+    .faq-question { font-size: 0.92rem; }
+    .schedule-time { font-size: 0.95rem; }
+    .venue-method { gap: 0.8rem; padding: 1rem; }
+  }
+
+  /* ─── WIX SMALLEST (320px) ─── */
+  @media (max-width: 360px) {
+    .hero { padding: 3.5rem 1rem 4.5rem; }
+    .mandala-ring:nth-child(1) { width: 230px; height: 230px; }
+    .mandala-ring:nth-child(2) { width: 178px; height: 178px; }
+    .mandala-ring:nth-child(3) { width: 135px; height: 135px; }
+    .hero-dates { font-size: 0.52rem; letter-spacing: 0.08em; }
+    .hero-cta { padding: 0.75rem 1.2rem; font-size: 0.55rem; }
+    .stat-num { font-size: 1.6rem; }
+    .stat-item { padding: 1.3rem 0.5rem; }
+    .section-title { font-size: 1.5rem; }
+    .shloka-text { font-size: 0.88rem; }
+    .attend-title { font-size: 1.75rem; }
+    .venue-method { flex-direction: column; }
+    .documentary-section, .testimonials-section, .peek-section,
+    .schedule-section, .venue-section, .attend-section, .faq-section { padding-left: 1rem; padding-right: 1rem; }
   }
 </style>
 </head>
