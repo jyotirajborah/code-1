@@ -1,6 +1,857 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gyanrahasya — Patotsav Ved Shrimad Bhagwat Mahapuran</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;700;900&family=Kalam:wght@300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C8960C;
+    --gold-light: #E8B84B;
+    --gold-pale: #F5D98A;
+    --gold-dim: #7A5A08;
+    --saffron: #D4610A;
+    --saffron-light: #E8822A;
+    --cream: #FAF3E0;
+    --cream-dark: #EDE0C4;
+    --brown-deep: #2A1A08;
+    --brown-mid: #4A2E10;
+    --brown-light: #7A5030;
+    --white: #FFFDF5;
+    --text-dark: #1A0F05;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--brown-deep);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ─── CUSTOM SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--brown-deep); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative; height: 100vh; min-height: 700px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Mandala background */
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(200,150,12,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 120% 120% at 50% 100%, rgba(212,97,10,0.15) 0%, transparent 50%),
+      linear-gradient(180deg, #1A0A03 0%, #2A1508 50%, #1A0A03 100%);
+  }
+
+  .mandala-ring {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%; border: 1px solid rgba(200,150,12,0.12);
+    animation: rotateSlow linear infinite;
+  }
+  .mandala-ring:nth-child(1) { width: 700px; height: 700px; animation-duration: 120s; }
+  .mandala-ring:nth-child(2) { width: 550px; height: 550px; animation-duration: 80s; animation-direction: reverse; border-color: rgba(200,150,12,0.18); }
+  .mandala-ring:nth-child(3) { width: 420px; height: 420px; animation-duration: 60s; border-color: rgba(212,97,10,0.2); }
+
+  @keyframes rotateSlow { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+  /* Lotuses on ring (decorative dots) */
+  .mandala-ring::before, .mandala-ring::after {
+    content: '✦';
+    position: absolute; top: -8px; left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold); font-size: 0.7rem; opacity: 0.6;
+  }
+  .mandala-ring::after { top: auto; bottom: -8px; }
+
+  /* Floating particles */
+  .particle {
+    position: absolute; border-radius: 50%;
+    background: radial-gradient(circle, var(--gold-light), transparent);
+    animation: floatUp linear infinite;
+    opacity: 0;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.2; }
+    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+  }
+
+  .hero-content {
+    position: relative; z-index: 10;
+    text-align: center;
+    animation: heroReveal 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  @keyframes heroReveal {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.5rem;
+    display: flex; align-items: center; justify-content: center; gap: 1rem;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; display: block; width: 50px; height: 1px; background: var(--gold); opacity: 0.5;
+  }
+
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 900; line-height: 0.95;
+    letter-spacing: -0.01em;
+    background: linear-gradient(180deg, var(--gold-pale) 0%, var(--gold) 40%, var(--saffron) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-style: italic; color: var(--cream-dark);
+    letter-spacing: 0.08em; margin-bottom: 0.5rem;
+  }
+
+  .hero-dates {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem; letter-spacing: 0.3em;
+    color: var(--gold-light); margin-bottom: 3rem;
+    text-transform: uppercase;
+  }
+
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    padding: 1rem 3rem;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--saffron) 100%);
+    color: var(--brown-deep);
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase;
+    text-decoration: none;
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative; overflow: hidden;
+  }
+  .hero-cta::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--gold-pale) 0%, var(--gold-light) 100%);
+    opacity: 0; transition: opacity 0.4s;
+  }
+  .hero-cta:hover::before { opacity: 1; }
+  .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 20px 60px rgba(200,150,12,0.4); }
+
+  .hero-scroll {
+    position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    color: rgba(200,150,12,0.5);
+    font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.25em;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  .hero-scroll::after {
+    content: ''; display: block; width: 1px; height: 50px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+  }
+  @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+  /* ─── SHLOKA BAND ─── */
+  .shloka-section {
+    position: relative;
+    padding: 6rem 0;
+    background: linear-gradient(180deg, var(--brown-deep) 0%, rgba(74,46,16,0.4) 50%, var(--brown-deep) 100%);
+    overflow: hidden;
+  }
+  .shloka-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L55 50 L5 50 Z' fill='none' stroke='rgba(200,150,12,0.04)' stroke-width='1'/%3E%3C/svg%3E") repeat;
+  }
+  .shloka-inner { max-width: 800px; margin: 0 auto; text-align: center; padding: 0 2rem; position: relative; }
+  .shloka-deco { font-size: 3rem; color: var(--gold); opacity: 0.4; line-height: 1; margin-bottom: 1rem; }
+  .shloka-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-style: italic; line-height: 1.8;
+    color: var(--cream-dark); margin-bottom: 1.5rem;
+  }
+  .shloka-translation {
+    font-size: 1rem; line-height: 1.8;
+    color: rgba(250,243,224,0.6);
+    max-width: 640px; margin: 0 auto;
+  }
+
+  /* ─── STATS ─── */
+  .stats-section {
+    padding: 0 4rem 6rem;
+    position: relative;
+  }
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border: 1px solid rgba(200,150,12,0.2);
+    position: relative;
+  }
+  .stats-grid::before {
+    content: '';
+    position: absolute; inset: -1px;
+    background: linear-gradient(135deg, rgba(200,150,12,0.3), transparent 50%, rgba(212,97,10,0.2));
+    z-index: -1;
+  }
+  .stat-item {
+    padding: 3rem 2rem;
+    text-align: center;
+    border-right: 1px solid rgba(200,150,12,0.15);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-item::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(200,150,12,0.05) 0%, transparent 100%);
+    opacity: 0; transition: opacity 0.4s;
+  }
+  .stat-item:hover::before { opacity: 1; }
+  .stat-num {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    background: linear-gradient(180deg, var(--gold-pale), var(--gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    line-height: 1;
+  }
+  .stat-unit {
+    font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold-dim); margin-bottom: 0.5rem;
+  }
+  .stat-label {
+    font-size: 0.85rem; letter-spacing: 0.1em;
+    color: rgba(250,243,224,0.5); text-transform: uppercase;
+    font-family: 'Cinzel', serif; font-size: 0.65rem;
+  }
+
+  /* ─── QUOTE BAND ─── */
+  .quote-band {
+    position: relative; padding: 4rem;
+    background: linear-gradient(135deg, var(--gold-dim) 0%, var(--saffron) 50%, var(--gold-dim) 100%);
+    overflow: hidden;
+  }
+  .quote-band::before {
+    content: '❝';
+    position: absolute; top: -2rem; left: 3rem;
+    font-size: 12rem; color: rgba(255,255,255,0.05);
+    font-family: 'Cinzel', serif; line-height: 1;
+  }
+  .quote-band::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 20px,
+      rgba(255,255,255,0.02) 20px,
+      rgba(255,255,255,0.02) 21px
+    );
+  }
+  .quote-band-inner {
+    max-width: 900px; margin: 0 auto; text-align: center;
+    position: relative; z-index: 1;
+  }
+  .quote-band-text {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
+    font-weight: 700; letter-spacing: 0.04em;
+    color: var(--brown-deep); line-height: 1.5;
+  }
+
+  /* ─── SECTION HEADING STYLE ─── */
+  .section-head { text-align: center; margin-bottom: 4rem; }
+  .section-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--saffron-light); margin-bottom: 1rem;
+    display: flex; align-items: center; justify-content: center; gap: 1rem;
+  }
+  .section-eyebrow::before, .section-eyebrow::after {
+    content: ''; display: block; width: 40px; height: 1px; background: var(--saffron-light); opacity: 0.4;
+  }
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700;
+    background: linear-gradient(180deg, var(--gold-pale), var(--gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    line-height: 1.1;
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials-section {
+    padding: 7rem 4rem;
+    background: linear-gradient(180deg, var(--brown-deep) 0%, rgba(42,21,8,0.6) 100%);
+  }
+  .testimonials-track {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .testimonial-card {
+    position: relative; padding: 2.5rem;
+    border: 1px solid rgba(200,150,12,0.15);
+    background: rgba(255,255,255,0.02);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+  }
+  .testimonial-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform: scaleX(0); transition: transform 0.4s;
+  }
+  .testimonial-card:hover::before { transform: scaleX(1); }
+  .testimonial-card:hover {
+    background: rgba(200,150,12,0.04);
+    transform: translateY(-8px);
+    border-color: rgba(200,150,12,0.3);
+  }
+  .testimonial-video {
+    width: 100%; aspect-ratio: 16/9;
+    background: rgba(0,0,0,0.5);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem; position: relative; overflow: hidden;
+  }
+  .video-play {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--saffron));
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.3s;
+  }
+  .video-play::after { content: '▶'; color: var(--brown-deep); font-size: 1.2rem; margin-left: 4px; }
+  .testimonial-card:hover .video-play { transform: scale(1.1); }
+  .testimonial-name {
+    font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.15em;
+    color: var(--gold-light); margin-bottom: 0.3rem;
+  }
+  .testimonial-text { font-size: 0.9rem; color: rgba(250,243,224,0.6); line-height: 1.7; }
+
+  /* ─── SNEAK PEEK ─── */
+  .peek-section { padding: 7rem 4rem; position: relative; }
+  .peek-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .peek-item {
+    position: relative; overflow: hidden;
+    aspect-ratio: 4/3;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(200,150,12,0.1);
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .peek-item::after {
+    content: 'Watch ▶';
+    position: absolute; inset: 0;
+    background: rgba(200,150,12,0.85);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.2em;
+    color: var(--brown-deep);
+    opacity: 0; transition: opacity 0.4s;
+  }
+  .peek-item:hover::after { opacity: 1; }
+  .peek-item:hover { transform: scale(1.02); border-color: var(--gold); }
+  .peek-video-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(42,21,8,0.8), rgba(200,150,12,0.1));
+    display: flex; align-items: center; justify-content: center;
+  }
+  .peek-icon { font-size: 3rem; opacity: 0.3; }
+
+  /* ─── SCHEDULE ─── */
+  .schedule-section {
+    padding: 7rem 4rem;
+    background: linear-gradient(180deg, rgba(42,21,8,0.3) 0%, var(--brown-deep) 100%);
+  }
+  .schedule-item {
+    display: grid; grid-template-columns: 220px 1fr auto;
+    align-items: center; gap: 3rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(200,150,12,0.1);
+    transition: all 0.3s;
+    position: relative;
+  }
+  .schedule-item::before {
+    content: '';
+    position: absolute; left: 0; bottom: -1px;
+    height: 1px; width: 0; background: var(--gold);
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .schedule-item:hover::before { width: 100%; }
+  .schedule-time {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem; color: var(--gold); letter-spacing: 0.05em;
+  }
+  .schedule-event {
+    font-size: 1.2rem; font-style: italic; color: var(--cream-dark); letter-spacing: 0.03em;
+  }
+  .schedule-badge {
+    padding: 0.4rem 1.2rem;
+    border: 1px solid var(--gold);
+    font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em;
+    color: var(--gold); text-transform: uppercase;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: all 0.3s;
+  }
+  .schedule-item:hover .schedule-badge {
+    background: var(--gold); color: var(--brown-deep);
+  }
+
+  /* ─── VENUE ─── */
+  .venue-section { padding: 7rem 4rem; }
+  .venue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .venue-address {
+    font-size: 1rem; line-height: 2; color: rgba(250,243,224,0.7);
+    margin-bottom: 2rem;
+  }
+  .venue-address strong { color: var(--gold-light); font-style: normal; }
+  .venue-methods { display: flex; flex-direction: column; gap: 1rem; }
+  .venue-method {
+    display: flex; gap: 1.5rem; align-items: flex-start;
+    padding: 1.5rem;
+    border: 1px solid rgba(200,150,12,0.12);
+    transition: all 0.3s;
+  }
+  .venue-method:hover { border-color: rgba(200,150,12,0.3); background: rgba(200,150,12,0.03); }
+  .venue-method-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--gold-dim), var(--saffron));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  .venue-method-title {
+    font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.15em;
+    color: var(--gold-light); margin-bottom: 0.4rem;
+  }
+  .venue-method-desc { font-size: 0.85rem; color: rgba(250,243,224,0.55); line-height: 1.7; }
+
+  /* ─── ATTEND BAND ─── */
+  .attend-section {
+    position: relative; padding: 8rem 4rem;
+    background:
+      radial-gradient(ellipse 60% 80% at 50% 50%, rgba(200,150,12,0.1) 0%, transparent 70%),
+      var(--brown-deep);
+    text-align: center; overflow: hidden;
+  }
+  .attend-section::before {
+    content: 'ॐ';
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    font-size: 30rem; color: rgba(200,150,12,0.03);
+    line-height: 1; pointer-events: none;
+    animation: rotateSlow 200s linear infinite;
+  }
+  .attend-badge {
+    display: inline-block; margin-bottom: 1.5rem;
+    padding: 0.5rem 2rem;
+    border: 1px solid var(--gold);
+    font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.35em;
+    color: var(--gold); text-transform: uppercase;
+  }
+  .attend-title {
+    font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 900;
+    background: linear-gradient(180deg, var(--gold-pale), var(--gold), var(--saffron));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    margin-bottom: 1rem; line-height: 1.1;
+  }
+  .attend-free {
+    font-size: clamp(1rem, 2vw, 1.3rem); font-style: italic;
+    color: rgba(250,243,224,0.6); margin-bottom: 3rem;
+  }
+  .attend-free span { color: var(--gold-light); font-style: normal; font-weight: 600; }
+
+  /* ─── FAQ ─── */
+  .faq-section { padding: 7rem 4rem; max-width: 900px; margin: 0 auto; }
+  .faq-item {
+    border-bottom: 1px solid rgba(200,150,12,0.12);
+    overflow: hidden;
+  }
+  .faq-question {
+    width: 100%; background: none; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.8rem 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; color: var(--cream); text-align: left;
+    letter-spacing: 0.02em; transition: color 0.3s;
+  }
+  .faq-question:hover { color: var(--gold-light); }
+  .faq-icon {
+    width: 30px; height: 30px; border: 1px solid rgba(200,150,12,0.3);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); flex-shrink: 0; transition: all 0.3s;
+    font-size: 1rem;
+  }
+  .faq-answer {
+    max-height: 0; overflow: hidden;
+    font-size: 0.95rem; color: rgba(250,243,224,0.6); line-height: 1.8;
+    padding-bottom: 0;
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s;
+  }
+  .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 1.5rem; }
+  .faq-item.open .faq-icon { background: var(--gold); color: var(--brown-deep); transform: rotate(45deg); }
+
+
+
+  /* ─── SCROLL ANIMATIONS ─── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 2rem; }
+    .nav-links { display: none; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .testimonials-track, .peek-grid { grid-template-columns: 1fr; }
+    .venue-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .schedule-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    section, .stats-section, .testimonials-section, .peek-section, 
+    .schedule-section, .venue-section, .attend-section, .faq-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+  }
+</style>
+</head>
 <body>
-  <h1>Hello World! Welcome to my GitHub Page.</h1>
+
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="mandala-ring"></div>
+  <div class="mandala-ring"></div>
+  <div class="mandala-ring"></div>
+
+  <!-- Particles -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hero = document.querySelector('.hero');
+      for (let i = 0; i < 20; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size = Math.random() * 4 + 2;
+        p.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;animation-duration:${Math.random()*15+10}s;animation-delay:${Math.random()*10}s;`;
+        hero.appendChild(p);
+      }
+    });
+  </script>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Patotsav Ved Shrimad Bhagwat Mahapuran</p>
+    <h1 class="hero-title">Gyan<br>rahasya</h1>
+    <p class="hero-subtitle">The Sacred Secret of Divine Knowledge</p>
+    <p class="hero-dates">13th — 19th December 2025 &nbsp;·&nbsp; Kolkata</p>
+    <a href="#register" class="hero-cta" id="register">Register Now &nbsp; ✦</a>
+  </div>
+
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- SHLOKA -->
+<section class="shloka-section">
+  <div class="shloka-inner">
+    <div class="shloka-deco">ॐ</div>
+    <p class="shloka-text reveal">
+      tava kathamṛtaṁ tapta-jīvanaṁ<br>
+      kavibhir īḍitaṁ kalmaṣāpaham<br>
+      śravaṇa-maṅgalaṁ śrīmad ātataṁ<br>
+      bhuvi gṛṇanti ye bhūri-dā janāḥ
+    </p>
+    <p class="shloka-translation reveal reveal-delay-1">
+      — Śrīmad Bhāgavatam —<br><br>
+      The nectar of the Lord's words is the life of those suffering in the material world. 
+      Narrations from learned sages erase sins and bring fortune to all who listen. 
+      Those who share God's message are truly generous.
+    </p>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-unit">Globally</div>
+      <div class="stat-num">10M+</div>
+      <div class="stat-label">Lives Impacted</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-unit">Worldwide</div>
+      <div class="stat-num">130</div>
+      <div class="stat-label">Total Nodal Centers</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-unit">Last Tour</div>
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Beneficiaries</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-unit">This Year</div>
+      <div class="stat-num">10</div>
+      <div class="stat-label">Divine Activities</div>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE BAND -->
+<div class="quote-band">
+  <div class="quote-band-inner">
+    <p class="quote-band-text">
+      Constantly hearing and speaking of the Lord's glories nourishes the heart with divine nectar, 
+      awakening faith and devotion towards Divine Love.
+    </p>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="section-head reveal">
+    <p class="section-eyebrow">Voices of Grace</p>
+    <h2 class="section-title">What They're Saying</h2>
+  </div>
+  <div class="testimonials-track">
+    <div class="testimonial-card reveal">
+      <div class="testimonial-video">
+        <div class="video-play"></div>
+      </div>
+      <p class="testimonial-name">Devotee Satsang — Kolkata</p>
+      <p class="testimonial-text">A transformative experience that touched the depths of my soul and awakened devotion.</p>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="testimonial-video">
+        <div class="video-play"></div>
+      </div>
+      <p class="testimonial-name">Bhakti Sangam — Mumbai</p>
+      <p class="testimonial-text">The divine katha brought clarity, peace and the grace of the Supreme Lord.</p>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="testimonial-video">
+        <div class="video-play"></div>
+      </div>
+      <p class="testimonial-name">Spiritual Retreat — Delhi</p>
+      <p class="testimonial-text">Words fail to describe the bliss experienced during Devi Ji's sacred recitation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SNEAK PEEK -->
+<section class="peek-section">
+  <div class="section-head reveal">
+    <p class="section-eyebrow">A Glimpse</p>
+    <h2 class="section-title">Sneak Peek</h2>
+    <p style="font-size:1rem; color:rgba(250,243,224,0.5); margin-top:0.8rem; font-style:italic;">
+      A look at all the activities that will happen and more
+    </p>
+  </div>
+  <div class="peek-grid">
+    <div class="peek-item reveal">
+      <div class="peek-video-bg"><div class="peek-icon">🪔</div></div>
+    </div>
+    <div class="peek-item reveal reveal-delay-1">
+      <div class="peek-video-bg"><div class="peek-icon">📿</div></div>
+    </div>
+    <div class="peek-item reveal reveal-delay-2">
+      <div class="peek-video-bg"><div class="peek-icon">🕉️</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule-section">
+  <div class="section-head reveal" style="max-width:900px; margin:0 auto 4rem;">
+    <p class="section-eyebrow">Daily Rhythm</p>
+    <h2 class="section-title">Order of the Day</h2>
+    <p style="font-size:1rem; color:rgba(250,243,224,0.5); margin-top:0.8rem; font-style:italic;">
+      When one sincerely hears the divine narrations of Lord Krishna, 
+      the Lord personally cleanses the heart of all impurities.
+    </p>
+  </div>
+  <div style="max-width:900px; margin:0 auto;">
+    <div class="schedule-item reveal">
+      <div class="schedule-time">05:00 – 05:20 pm</div>
+      <div class="schedule-event">Aarti, Prayer, and Pranam</div>
+      <div class="schedule-badge">Sacred Ritual</div>
+    </div>
+    <div class="schedule-item reveal reveal-delay-1">
+      <div class="schedule-time">05:20 – 08:00 pm</div>
+      <div class="schedule-event">Bhagwat Katha and Kirtan</div>
+      <div class="schedule-badge">Divine Discourse</div>
+    </div>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section class="venue-section">
+  <div class="section-head reveal">
+    <p class="section-eyebrow">Find Us Here</p>
+    <h2 class="section-title">Getting There</h2>
+  </div>
+  <div class="venue-grid">
+    <div>
+      <p class="venue-address reveal">
+        <strong>Meiwar Banquet, Down Town Mall</strong><br>
+        18, 177 & 178, 7th Floor<br>
+        AB Rd, Bidhan Nagar<br>
+        Kolkata – 700 106
+      </p>
+      <div style="padding:2rem; border:1px solid rgba(200,150,12,0.15); background:rgba(0,0,0,0.2); text-align:center;">
+        <p style="font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.5rem;">ATTEND OFFLINE</p>
+        <p style="font-size:2rem; font-weight:600; color:var(--cream); margin-bottom:0.5rem;">Free <span style="color:var(--gold-light); font-style:italic;">For All</span></p>
+        <a href="#register" class="hero-cta" style="display:inline-flex; margin-top:1rem; font-size:0.65rem;">Register Now ✦</a>
+      </div>
+    </div>
+    <div class="venue-methods">
+      <div class="venue-method reveal">
+        <div class="venue-method-icon">✈</div>
+        <div>
+          <p class="venue-method-title">By Flight</p>
+          <p class="venue-method-desc">Netaji Subhas Chandra Bose International Airport is approximately 15 km from the venue. Pre-book a cab or use app-based rides for convenience.</p>
+        </div>
+      </div>
+      <div class="venue-method reveal reveal-delay-1">
+        <div class="venue-method-icon">🚌</div>
+        <div>
+          <p class="venue-method-title">By Bus</p>
+          <p class="venue-method-desc">Down Town Mall is accessible via multiple WBTC bus routes. Alight at Bidhan Nagar Station Road for a short walk to the venue.</p>
+        </div>
+      </div>
+      <div class="venue-method reveal reveal-delay-2">
+        <div class="venue-method-icon">🚆</div>
+        <div>
+          <p class="venue-method-title">By Train</p>
+          <p class="venue-method-desc">The nearest Metro station is Salt Lake Sector V. From there, the venue is a 10-minute auto or cab ride via Bidhan Nagar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ATTEND BAND -->
+<section class="attend-section">
+  <div style="position:relative; z-index:1;">
+    <div class="attend-badge reveal">Sacred Gathering</div>
+    <h2 class="attend-title reveal">Attend Offline</h2>
+    <p class="attend-free reveal"><span>Free</span> For All — Open to Every Seeking Soul</p>
+    <a href="#register" class="hero-cta reveal">Reserve Your Seat &nbsp;✦</a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-head reveal">
+    <p class="section-eyebrow">Questions</p>
+    <h2 class="section-title">FAQ</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-question">
+        What is the event about?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        This event is a week-long Bhagwat Katha led by Raseshwari Devi Ji, along with Aarti, Kirtan and Manasadhyan meditation. It is an opportunity for spiritual seekers to immerse themselves in divine knowledge and the eternal wisdom of the Shrimad Bhagwatam.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        When will the function take place?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        The event runs from 13th to 19th December 2025, daily from 5:00 PM to 8:00 PM at Meiwar Banquet, Down Town Mall, Kolkata.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        Who can attend and is there an entry fee?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        The event is open to all — devotees, spiritual seekers, families and those simply curious about the wisdom of the Bhagwatam. Entry is completely free of charge.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        How can I get more information or get involved?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        You can reach out via the Contact page, or follow us on our social media channels for regular updates. Volunteer opportunities are available — register and indicate your interest in supporting the event.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<script>
+// Intersection Observer for reveal animations
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// Number counter animation
+function animateCounter(el, target, suffix = '') {
+  const dur = 2000; const start = performance.now();
+  const step = (ts) => {
+    const pct = Math.min((ts - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - pct, 4);
+    const val = Math.round(ease * target);
+    el.textContent = val.toLocaleString() + suffix;
+    if (pct < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+const counters = [
+  { el: document.querySelectorAll('.stat-num')[0], val: 10, suffix: 'M+' },
+  { el: document.querySelectorAll('.stat-num')[1], val: 130, suffix: '' },
+  { el: document.querySelectorAll('.stat-num')[2], val: 500, suffix: '+' },
+  { el: document.querySelectorAll('.stat-num')[3], val: 10, suffix: '' },
+];
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      counters.forEach(c => animateCounter(c.el, c.val, c.suffix));
+      statsObserver.disconnect();
+    }
+  });
+}, { threshold: 0.5 });
+statsObserver.observe(document.querySelector('.stats-grid'));
+</script>
 </body>
 </html>
