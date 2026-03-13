@@ -623,8 +623,11 @@
     .peek-section { padding: 5rem 2rem; }
     .peek-grid { grid-template-columns: 1fr; gap: 1rem; }
     .schedule-section { padding: 5rem 2rem; }
-    .schedule-item { grid-template-columns: 1fr; gap: 0.6rem; padding: 1.5rem 0; }
-    .schedule-badge { align-self: flex-start; width: fit-content; }
+    .schedule-item { grid-template-columns: 1fr; gap: 0.6rem; padding: 1.5rem 0; text-align: center; }
+    .schedule-badge { align-self: center; width: fit-content; margin: 0 auto; }
+    .schedule-time { text-align: center; }
+    .schedule-event { text-align: center; }
+    .schedule-desc { text-align: center; }
     .venue-section { padding: 5rem 2rem; }
     .venue-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .attend-section { padding: 5rem 2rem; }
@@ -660,8 +663,8 @@
     .testimonial-card { padding: 1.5rem; }
     .peek-section { padding: 4rem 1.5rem; }
     .schedule-section { padding: 4rem 1.5rem; }
-    .schedule-time { font-size: 1rem; }
-    .schedule-event { font-size: 1rem; }
+    .schedule-time { font-size: 1rem; text-align: center; }
+    .schedule-event { font-size: 1rem; text-align: center; }
     .venue-section { padding: 4rem 1.5rem; }
     .venue-method { gap: 1rem; padding: 1.2rem; }
     .attend-section { padding: 4rem 1.5rem; }
@@ -694,7 +697,9 @@
     .testimonial-card { padding: 1.2rem; }
     .attend-title { font-size: 2rem; }
     .faq-question { font-size: 0.92rem; }
-    .schedule-time { font-size: 0.95rem; }
+    .schedule-time { font-size: 0.95rem; text-align: center; }
+    .schedule-event { text-align: center; }
+    .schedule-badge { margin: 0 auto; }
     .venue-method { gap: 0.8rem; padding: 1rem; }
   }
 
@@ -889,7 +894,7 @@
   <div class="section-head reveal" style="max-width:900px; margin:0 auto 4rem;">
     <p class="section-eyebrow">Daily Rhythm</p>
     <h2 class="section-title">Order of the Day</h2>
-    <p style="font-size:1rem; color:rgba(250,243,224,0.5); margin-top:0.8rem; font-style:italic;">
+    <p class="schedule-desc" style="font-size:1rem; color:rgba(250,243,224,0.5); margin-top:0.8rem; font-style:italic;">
       When one sincerely hears the divine narrations of Lord Krishna, 
       the Lord personally cleanses the heart of all impurities.
     </p>
