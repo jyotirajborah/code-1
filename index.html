@@ -511,6 +511,69 @@
 
 
 
+  /* ─── DOCUMENTARY SECTION ─── */
+  .documentary-section {
+    padding: 7rem 4rem;
+    background: linear-gradient(180deg, var(--brown-deep) 0%, rgba(26,10,3,0.95) 100%);
+    position: relative; overflow: hidden;
+  }
+  .documentary-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(200,150,12,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .documentary-inner { max-width: 1000px; margin: 0 auto; }
+  .documentary-label {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.4rem 1.2rem;
+    background: rgba(200,150,12,0.1);
+    border: 1px solid rgba(200,150,12,0.3);
+    font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.3em;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .documentary-label::before { content: '◉'; font-size: 0.5rem; color: var(--saffron-light); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  .documentary-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700;
+    background: linear-gradient(180deg, var(--gold-pale), var(--gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    line-height: 1.2; margin-bottom: 0.8rem;
+  }
+  .documentary-desc {
+    font-size: 1.05rem; font-style: italic;
+    color: rgba(250,243,224,0.55); line-height: 1.8;
+    max-width: 680px; margin-bottom: 2.5rem;
+  }
+  .documentary-frame {
+    position: relative; width: 100%; aspect-ratio: 16/9;
+    background: #000;
+    border: 1px solid rgba(200,150,12,0.2);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(200,150,12,0.08);
+    overflow: hidden;
+  }
+  .documentary-frame::before {
+    content: '';
+    position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: linear-gradient(180deg, rgba(200,150,12,0.06) 0%, transparent 20%, transparent 80%, rgba(42,21,8,0.4) 100%);
+  }
+  .documentary-frame iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    border: none; display: block;
+  }
+  .documentary-corner {
+    position: absolute; width: 20px; height: 20px;
+    border-color: var(--gold); border-style: solid; opacity: 0.5;
+    z-index: 2; pointer-events: none;
+  }
+  .documentary-corner.tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+  .documentary-corner.tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+  .documentary-corner.bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+  .documentary-corner.br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
   /* ─── SCROLL ANIMATIONS ─── */
   .reveal {
     opacity: 0; transform: translateY(30px);
@@ -521,17 +584,92 @@
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
 
-  /* ─── RESPONSIVE ─── */
+  /* ─── RESPONSIVE: TABLET (max 900px) ─── */
   @media (max-width: 900px) {
-    nav { padding: 1rem 2rem; }
-    .nav-links { display: none; }
+    .stats-section { padding: 0 2rem 4rem; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .testimonials-track, .peek-grid { grid-template-columns: 1fr; }
-    .venue-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .schedule-item { grid-template-columns: 1fr; gap: 0.5rem; }
-    section, .stats-section, .testimonials-section, .peek-section, 
-    .schedule-section, .venue-section, .attend-section, .faq-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .stat-item:nth-child(2) { border-right: none; }
+    .stat-item:nth-child(1), .stat-item:nth-child(2) { border-bottom: 1px solid rgba(200,150,12,0.15); }
+
+    .testimonials-section { padding: 5rem 2rem; }
+    .testimonials-track { grid-template-columns: 1fr; gap: 1.2rem; }
+
+    .peek-section { padding: 5rem 2rem; }
+    .peek-grid { grid-template-columns: 1fr; gap: 1rem; }
+
+    .schedule-section { padding: 5rem 2rem; }
+    .schedule-item { grid-template-columns: 1fr; gap: 0.6rem; padding: 1.5rem 0; }
+    .schedule-badge { align-self: flex-start; width: fit-content; }
+
+    .venue-section { padding: 5rem 2rem; }
+    .venue-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+    .attend-section { padding: 5rem 2rem; }
+    .faq-section { padding: 5rem 2rem; }
+
+    .documentary-section { padding: 5rem 2rem; }
+    .shloka-section { padding: 4rem 0; }
+    .quote-band { padding: 3rem 2rem; }
+  }
+
+  /* ─── RESPONSIVE: MOBILE (max 600px) ─── */
+  @media (max-width: 600px) {
+    /* Hero */
+    .hero { min-height: 100svh; }
+    .mandala-ring:nth-child(1) { width: 350px; height: 350px; }
+    .mandala-ring:nth-child(2) { width: 270px; height: 270px; }
+    .mandala-ring:nth-child(3) { width: 210px; height: 210px; }
+    .hero-eyebrow { font-size: 0.55rem; letter-spacing: 0.2em; flex-wrap: wrap; justify-content: center; }
+    .hero-eyebrow::before, .hero-eyebrow::after { width: 25px; }
+    .hero-dates { font-size: 0.65rem; letter-spacing: 0.15em; }
+    .hero-cta { padding: 0.9rem 2rem; font-size: 0.65rem; letter-spacing: 0.2em; }
+    .hero-scroll { bottom: 1.5rem; }
+
+    /* Stats */
+    .stats-section { padding: 0 1.2rem 3rem; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-item { padding: 2rem 1rem; }
+
+    /* Shloka */
+    .shloka-inner { padding: 0 1.5rem; }
+    .shloka-text { font-size: 1rem; }
+    .shloka-translation { font-size: 0.9rem; }
+
+    /* Quote */
+    .quote-band { padding: 2.5rem 1.5rem; }
+    .quote-band-text { font-size: 1rem; }
+
+    /* Documentary */
+    .documentary-section { padding: 4rem 1.5rem; }
+    .documentary-title { font-size: 1.6rem; }
+    .documentary-desc { font-size: 0.95rem; }
+
+    /* Testimonials */
+    .testimonials-section { padding: 4rem 1.5rem; }
+    .testimonial-card { padding: 1.5rem; }
+
+    /* Peek */
+    .peek-section { padding: 4rem 1.5rem; }
+
+    /* Schedule */
+    .schedule-section { padding: 4rem 1.5rem; }
+    .schedule-time { font-size: 1rem; }
+    .schedule-event { font-size: 1rem; }
+
+    /* Venue */
+    .venue-section { padding: 4rem 1.5rem; }
+    .venue-method { gap: 1rem; padding: 1.2rem; }
+
+    /* Attend */
+    .attend-section { padding: 4rem 1.5rem; }
+    .attend-section::before { font-size: 15rem; }
+
+    /* FAQ */
+    .faq-section { padding: 4rem 1.5rem; }
+    .faq-question { font-size: 1rem; padding: 1.4rem 0; }
+
+    /* Section heads */
+    .section-head { margin-bottom: 2.5rem; }
   }
 </style>
 </head>
@@ -626,7 +764,31 @@
   </div>
 </div>
 
-<!-- TESTIMONIALS -->
+<!-- DOCUMENTARY -->
+<section class="documentary-section">
+  <div class="documentary-inner">
+    <div class="reveal">
+      <div class="documentary-label">Full Documentary</div>
+      <h2 class="documentary-title">The Divine Journey of<br>Raseshwari Devi Ji</h2>
+      <p class="documentary-desc">
+        An intimate portrait of the sacred mission — the katha, the kirtan, the lives touched. 
+        Watch the complete story of devotion unfolding across the world.
+      </p>
+    </div>
+    <div class="documentary-frame reveal reveal-delay-1">
+      <div class="documentary-corner tl"></div>
+      <div class="documentary-corner tr"></div>
+      <div class="documentary-corner bl"></div>
+      <div class="documentary-corner br"></div>
+      <iframe
+        src="https://www.youtube.com/embed/WvlPru1hfvo?start=4&rel=0&modestbranding=1&color=white"
+        title="Raseshwari Devi Ji — Documentary"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
 <section class="testimonials-section">
   <div class="section-head reveal">
     <p class="section-eyebrow">Voices of Grace</p>
