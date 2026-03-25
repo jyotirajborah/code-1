@@ -439,8 +439,10 @@
   ══════════════════════════════ */
   .videos-section { padding:88px 24px; background:var(--parchment); }
   .videos-inner { max-width:1080px; margin:0 auto; }
-  .videos-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-  @media(max-width:768px){ .videos-grid{grid-template-columns:1fr} }
+  .videos-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+  @media(max-width:640px){ .videos-grid{grid-template-columns:1fr} }
+
+  .video-thumb { aspect-ratio: 16/9; width:100%; overflow:hidden; }
 
   .video-card {
     border-radius:20px; overflow:hidden; border:2px solid rgba(234,179,8,0.2);
@@ -936,49 +938,63 @@
       </div>
       <h2 class="section-title">Glimpses of the Discourse</h2>
       <p class="section-shloka">"श्रोतव्यः कीर्तितव्यश्च — That which must be heard and spoken of"</p>
-      <p class="section-desc">Add your YouTube video links here — placeholders shown below</p>
+      <p class="section-desc">Watch glimpses from previous programmes by Pujaniya Raseshwari Devi Ji</p>
     </div>
-    <div class="videos-grid">
-      <div class="video-card" onclick="window.open('https://www.youtube.com/c/RaseshwariDeviJi','_blank')">
-        <div class="video-thumb">
-          <div class="video-thumb-placeholder">
-            <span class="vt-icon">🧘</span>
-            <span class="vt-topic">Introduction to the Upanishads<br>— The Crown of the Vedas</span>
-          </div>
-          <div class="play-btn">▶</div>
+    <div class="videos-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="video-card">
+        <div class="video-thumb" style="padding:0;background:#000;">
+          <iframe width="100%" height="100%" style="aspect-ratio:16/9;display:block;border:none;"
+            src="https://www.youtube.com/embed/m8srsHSa258"
+            title="Speech — Pujaniya Raseshwari Devi Ji"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
         </div>
         <div class="video-info">
-          <div class="video-tag">Discourse Preview · Ep 1</div>
-          <div class="video-title">What are the Upanishads?</div>
-          <p class="video-desc">An introduction to the 108 Upanishads — their origin, their mahavakyas and why they are the highest wisdom of the Vedas.</p>
+          <div class="video-tag">Discourse</div>
+          <div class="video-title">Speech</div>
+          <p class="video-desc">A powerful discourse by Pujaniya Raseshwari Devi Ji illuminating the path of Gyan and Bhakti.</p>
         </div>
       </div>
       <div class="video-card" onclick="window.open('https://www.youtube.com/c/RaseshwariDeviJi','_blank')">
-        <div class="video-thumb">
-          <div class="video-thumb-placeholder">
-            <span class="vt-icon">🪷</span>
-            <span class="vt-topic">Tat Tvam Asi<br>— Thou Art That</span>
-          </div>
-          <div class="play-btn">▶</div>
+        <div class="video-thumb" style="padding:0;background:#000;">
+          <iframe width="100%" height="100%" style="aspect-ratio:16/9;display:block;border:none;"
+            src="https://www.youtube.com/embed/VgPMHswq07A"
+            title="Morning Kirtan — Pujaniya Raseshwari Devi Ji"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
         </div>
         <div class="video-info">
-          <div class="video-tag">Vedanta · Ep 2</div>
-          <div class="video-title">Tat Tvam Asi — The Mahavakya Explained</div>
-          <p class="video-desc">Raseshwari Devi Ji illuminates the deepest mahavakya of the Chandogya Upanishad — "Thou Art That" — with clarity and devotion.</p>
+          <div class="video-tag">Kirtan</div>
+          <div class="video-title">Morning Kirtan</div>
+          <p class="video-desc">A soul-stirring morning kirtan session — fill your heart with devotion at the start of the day.</p>
         </div>
       </div>
-      <div class="video-card" onclick="window.open('https://www.youtube.com/c/RaseshwariDeviJi','_blank')">
-        <div class="video-thumb">
-          <div class="video-thumb-placeholder">
-            <span class="vt-icon">🔥</span>
-            <span class="vt-topic">Gyan and Bhakti<br>— Two Wings of Liberation</span>
-          </div>
-          <div class="play-btn">▶</div>
+      <div class="video-card">
+        <div class="video-thumb" style="padding:0;background:#000;">
+          <iframe width="100%" height="100%" style="aspect-ratio:16/9;display:block;border:none;"
+            src="https://www.youtube.com/embed/JfZSNg_jEuI"
+            title="Meet and Greet — Pujaniya Raseshwari Devi Ji"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
         </div>
         <div class="video-info">
-          <div class="video-tag">Moksha Marg · Ep 3</div>
-          <div class="video-title">Gyan and Bhakti as One Path</div>
-          <p class="video-desc">Discover how Jagadguru Kripalu Ji Maharaj unified Upanishadic knowledge and devotion — and how Raseshwari Devi Ji brings this living truth to every seeker.</p>
+          <div class="video-tag">Satsang</div>
+          <div class="video-title">Meet &amp; Greet</div>
+          <p class="video-desc">An intimate meet and greet with Pujaniya Raseshwari Devi Ji — moments of grace, blessings and personal connection.</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumb" style="padding:0;background:#000;">
+          <iframe width="100%" height="100%" style="aspect-ratio:16/9;display:block;border:none;"
+            src="https://www.youtube.com/embed/WKGC-_Me4eI"
+            title="Home Visit — Pujaniya Raseshwari Devi Ji"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+          <div class="video-tag">Home Visit</div>
+          <div class="video-title">Home Visit</div>
+          <p class="video-desc">Witness the warmth and grace of Devi Ji's home visits — bringing the sacred into everyday life and homes of devotees.</p>
         </div>
       </div>
     </div>
