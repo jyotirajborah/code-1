@@ -25,7 +25,7 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { background: var(--cream); color: var(--text); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+  body { background: var(--cream); color: var(--text); font-family: 'DM Sans', sans-serif; overflow-x: hidden; font-size: 17px; }
 
   /* ══════════════ DECORATIVE DIVIDER ══════════════ */
   .lotus-divider {
@@ -150,7 +150,7 @@
   .hero-event-tag {
     display: inline-flex; align-items: center; gap: 10px;
     background: rgba(217,119,6,0.15); border: 1px solid rgba(234,179,8,0.4);
-    color: var(--yellow-light); font-size: 0.68rem; letter-spacing: 0.25em;
+    color: var(--yellow-light); font-size: 0.78rem; letter-spacing: 0.25em;
     text-transform: uppercase; padding: 7px 20px; border-radius: 30px; margin-bottom: 20px;
   }
   .hero-event-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--yellow); animation: blinkDot 2s ease-in-out infinite; }
@@ -171,7 +171,7 @@
   }
 
   .hero-desc {
-    color: rgba(255,255,255,0.55); font-size: 0.9rem; font-weight: 300;
+    color: rgba(255,255,255,0.55); font-size: 1rem; font-weight: 300;
     margin-bottom: 32px; line-height: 1.8; max-width: 580px; margin-left: auto; margin-right: auto;
   }
 
@@ -181,7 +181,7 @@
   }
   .pill {
     background: rgba(217,119,6,0.15); border: 1px solid rgba(234,179,8,0.3);
-    color: #FDE047; font-size: 0.78rem; padding: 6px 16px; border-radius: 20px; font-weight: 400;
+    color: #FDE047; font-size: 0.88rem; padding: 6px 16px; border-radius: 20px; font-weight: 400;
   }
 
   .hero-cta-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
@@ -219,13 +219,13 @@
   }
   .chars-inner { max-width: 1100px; margin: 0 auto; }
   .chars-label {
-    text-align: center; font-family: 'Cormorant Garamond', serif;
+    text-align: center; justify-content: center; font-family: 'Cormorant Garamond', serif;
     font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;
     color: rgba(253,224,71,0.6); margin-bottom: 32px;
   }
-  .chars-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-  @media(max-width:768px){ .chars-grid{grid-template-columns:repeat(3,1fr)} }
-  @media(max-width:480px){ .chars-grid{grid-template-columns:repeat(2,1fr)} }
+  .chars-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; justify-content: center; }
+  @media(max-width:768px){ .chars-grid{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:480px){ .chars-grid{grid-template-columns:1fr} }
 
   .char-card {
     text-align: center; padding: 24px 16px;
@@ -239,7 +239,7 @@
     border: 2px solid rgba(234,179,8,0.4);
     display: flex; align-items: center; justify-content: center; font-size: 1.8rem;
   }
-  .char-name { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--yellow-light); font-weight: 600; margin-bottom: 4px; }
+  .char-name { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--yellow-light); text-align: center; font-weight: 600; margin-bottom: 4px; }
   .char-role { font-size: 0.72rem; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.4; }
 
   /* ══════════════════════════════
@@ -250,8 +250,8 @@
   .event-item { display: flex; align-items: center; gap: 12px; padding: 20px 24px; border-right: 1px solid rgba(0,0,0,0.12); }
   .event-item:last-child { border-right: none; }
   .event-icon { font-size: 1.6rem; flex-shrink: 0; }
-  .event-label { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(30,27,75,0.6); margin-bottom: 2px; }
-  .event-value { font-size: 0.88rem; font-weight: 700; color: var(--indigo-deep); line-height: 1.3; }
+  .event-label { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(30,27,75,0.6); margin-bottom: 2px; }
+  .event-value { font-size: 1rem; font-weight: 700; color: var(--indigo-deep); line-height: 1.3; }
   @media(max-width:768px){ .event-strip-inner{grid-template-columns:1fr 1fr} .event-item{border-bottom:1px solid rgba(0,0,0,0.08)} }
   @media(max-width:480px){ .event-strip-inner{grid-template-columns:1fr} }
 
@@ -319,7 +319,7 @@
     color:var(--saffron); font-weight:600; font-size:1.05rem;
     font-style:italic; letter-spacing:.04em; margin-bottom:22px;
   }
-  .profile-bio { color:#4A3728; font-size:.96rem; line-height:1.9; font-weight:300; margin-bottom:28px; }
+  .profile-bio { color:#4A3728; font-size:1.05rem; line-height:1.9; font-weight:300; margin-bottom:28px; }
   .profile-bio strong { color:var(--indigo-deep); font-weight:600; }
   .profile-highlights { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
   @media(max-width:480px){ .profile-highlights{grid-template-columns:1fr} }
@@ -343,7 +343,7 @@
   .stats-inner { max-width:960px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
   @media(max-width:600px){ .stats-inner{grid-template-columns:repeat(2,1fr)} }
   .stat-num { font-family:'Cormorant Garamond',serif; font-size:2.6rem; color:var(--yellow-light); display:block; line-height:1; margin-bottom:6px; font-weight:700; }
-  .stat-label { color:rgba(255,255,255,.55); font-size:.8rem; font-weight:300; letter-spacing:.06em; }
+  .stat-label { color:rgba(255,255,255,.55); font-size:.9rem; font-weight:300; letter-spacing:.06em; }
 
   /* ══════════════════════════════
      ABOUT THE KATHA — Sacred Scroll style
@@ -366,7 +366,7 @@
   .section-label-fancy span { color:var(--saffron); font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; font-weight:600; font-family:'DM Sans',sans-serif; }
   .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(1.7rem,3.5vw,2.6rem); color:var(--indigo-deep); margin-bottom:10px; font-weight:700; }
   .section-shloka { font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--saffron); font-style:italic; margin-bottom:8px; }
-  .section-desc { color:var(--muted); font-size:.93rem; font-weight:300; }
+  .section-desc { color:var(--muted); font-size:1.02rem; font-weight:300; }
 
   .about-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
   @media(max-width:768px){ .about-grid{grid-template-columns:1fr} }
@@ -387,7 +387,7 @@
   .about-card:hover { transform:translateY(-5px); box-shadow:0 18px 44px rgba(79,70,229,.12); }
   .about-card-icon { font-size:2.4rem; margin-bottom:16px; display:block; }
   .about-card-title { font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--indigo-deep); margin-bottom:10px; font-weight:700; }
-  .about-card-text { font-size:.87rem; color:#5A5280; line-height:1.78; font-weight:300; }
+  .about-card-text { font-size:.97rem; color:#5A5280; line-height:1.78; font-weight:300; }
 
   /* ══════════════════════════════
      THE UPANISHADIC PARAMPARA
@@ -432,7 +432,7 @@
   .story-card-icon { font-size:2rem; margin-bottom:16px; }
   .story-card-title { font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--yellow-light); font-weight:700; margin-bottom:8px; }
   .story-card-sub { font-size:.72rem; color:rgba(253,224,71,.6); font-weight:500; letter-spacing:.1em; text-transform:uppercase; margin-bottom:14px; }
-  .story-card-text { font-size:.87rem; color:rgba(255,255,255,.7); line-height:1.8; font-weight:300; }
+  .story-card-text { font-size:.97rem; color:rgba(255,255,255,.7); line-height:1.8; font-weight:300; }
 
   /* ══════════════════════════════
      SNEAK PEEK VIDEOS
@@ -487,7 +487,7 @@
     border-radius:8px; margin-bottom:10px; border:1px solid rgba(217,119,6,.25);
   }
   .video-title { font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--indigo-deep); margin-bottom:6px; line-height:1.4; font-weight:700; }
-  .video-desc { font-size:.8rem; color:var(--muted); line-height:1.6; font-weight:300; }
+  .video-desc { font-size:.9rem; color:var(--muted); line-height:1.6; font-weight:300; }
 
   .videos-cta { text-align:center; margin-top:40px; }
   .btn-outline {
@@ -747,40 +747,6 @@
   <div class="hero-scroll">↓  Scroll to Explore</div>
 </section>
 
-<!-- ══════════ UPANISHAD WISDOM STRIP ══════════ -->
-<div class="chars-strip">
-  <div class="chars-inner">
-    <div class="chars-label">✦ &nbsp; The Light of Upanishadic Wisdom &nbsp; ✦</div>
-    <div class="chars-grid">
-      <div class="char-card">
-        <div class="char-icon"></div>
-        <div class="char-name">The Upanishads</div>
-        <div class="char-role">108 sacred texts — the Vedanta, the highest knowledge of the Self</div>
-      </div>
-      <div class="char-card">
-        <div class="char-icon" style="font-size:1.5rem;letter-spacing:0;">⚛</div>
-        <div class="char-name">Jagadguru Kripalu Ji</div>
-        <div class="char-role">Jagadguru of the age — revealer of the true path of Bhakti and Gyan</div>
-      </div>
-      <div class="char-card">
-        <div class="char-icon" style="font-size:1.5rem;">⊷</div>
-        <div class="char-name">Vedanta Darshan</div>
-        <div class="char-role">The philosophy of non-duality and the nature of Brahman and Atman</div>
-      </div>
-      <div class="char-card">
-        <div class="char-icon" style="font-size:1.5rem;">❋</div>
-        <div class="char-name">Raseshwari Devi Ji</div>
-        <div class="char-role">Illuminating Upanishadic wisdom for every seeker in the modern age</div>
-      </div>
-      <div class="char-card">
-        <div class="char-icon" style="font-size:1.4rem;">◈</div>
-        <div class="char-name">Bhakti Marg</div>
-        <div class="char-role">The path of loving devotion — the most direct and joyful road to God-realisation, as revealed by Jagadguru Kripalu Ji Maharaj</div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- ══════════ EVENT STRIP ══════════ -->
 <div class="event-strip">
   <div class="event-strip-inner">
@@ -845,56 +811,35 @@
   </div>
 </section>
 
-<!-- ══════════ STORY SECTION ══════════ -->
-<section class="story-section">
-  <div class="story-inner">
-    <div class="section-header">
-      <div class="section-label-fancy" style="justify-content:center;">
-        <div class="line" style="background:linear-gradient(to right,transparent,rgba(234,179,8,0.5));max-width:80px"></div>
-        <span style="color:rgba(253,224,71,0.7)">The Divine Assembly</span>
-        <div class="line r" style="background:linear-gradient(to left,transparent,rgba(234,179,8,0.5));max-width:80px"></div>
+<!-- ══════════ UPANISHAD WISDOM STRIP ══════════ -->
+<div class="chars-strip">
+  <div class="chars-inner">
+    <div class="chars-label">✦ &nbsp; The Light of Upanishadic Wisdom &nbsp; ✦</div>
+    <div class="chars-grid">
+      <div class="char-card">
+        <div class="char-icon" style="font-size:1.6rem;font-family:'Noto Serif',Georgia,serif;color:#EAB308;background:none;border-color:rgba(234,179,8,0.4);">ॐ</div>
+        <div class="char-name">The Upanishads</div>
+        <div class="char-role">108 sacred texts — the Vedanta, the highest knowledge of the Self</div>
       </div>
-      <h2 class="section-title">The Upanishadic Parampara</h2>
-      <p class="section-shloka">"सर्वं खल्विदं ब्रह्म" · All this indeed is Brahman — Chandogya Upanishad</p>
-      <p class="section-desc">The living lineage through which this supreme Vedic wisdom has reached us</p>
-    </div>
-    <div class="story-grid">
-      <div class="story-card">
-        <div class="story-card-number">01</div>
-        <div class="story-card-icon">◎</div>
-        <div class="story-card-title">The Upanishads — The Meaning of Vedas</div>
-        <div class="story-card-sub">Vedanta · The End of All Knowledge</div>
-        <p class="story-card-text" style="font-style:italic;color:rgba(253,224,71,0.85);margin-bottom:10px;line-height:1.7;">
-          "parīkṣya lokān karmacitān brāhmaṇo nirvedam āyān nāsty akṛtaḥ kṛtena |<br>
-          tad vijñānārthaṁ sa gurum evābhigacchet samit-pāṇiḥ śrotriyaṁ brahma-niṣṭham ||"<br>
-          <span style="font-size:0.75rem;opacity:0.7;">— Muṇḍaka Upaniṣad 1.2.12</span>
-        </p>
-        <p class="story-card-text">Having examined the worlds gained by action, a seeker of wisdom should turn away from them with detachment — for nothing that is eternal can be gained by mere action. To know that which is eternal, he must approach a Guru who is learned in the scriptures and firmly established in Brahman, with humility and an open heart. This verse is the very call of the Upanishads: that true knowledge requires a living Guru, not books alone.</p>
+      <div class="char-card">
+        <div class="char-icon" style="font-size:1.5rem;letter-spacing:0;">⚛</div>
+        <div class="char-name">Jagadguru Kripalu Ji</div>
+        <div class="char-role">Jagadguru of the age — revealer of the true path of Bhakti and Gyan</div>
       </div>
-      <div class="story-card">
-        <div class="story-card-number">02</div>
-        <div class="story-card-icon">✦</div>
-        <div class="story-card-title">Jagadguru Shri Kripalu Ji Maharaj</div>
-        <div class="story-card-sub">Jagadguru · Bhakti-Vedanta Master</div>
-        <p class="story-card-text">Recognised as the fifth Jagadguru of Sanatan Dharm, Shri Kripalu Ji Maharaj synthesised the highest Gyan of the Upanishads with the path of pure Bhakti. He revealed that loving devotion to God and the knowledge of Brahman are not opposing paths — they are two wings of the same liberation.</p>
+      <div class="char-card">
+        <div class="char-icon" style="font-size:1.5rem;">⊷</div>
+        <div class="char-name">Vedanta Darshan</div>
+        <div class="char-role">The philosophy of non-duality and the nature of Brahman and Atman</div>
       </div>
-      <div class="story-card">
-        <div class="story-card-number">03</div>
-        <div class="story-card-icon">❧</div>
-        <div class="story-card-title">Pujaniya Raseshwari Devi Ji</div>
-        <div class="story-card-sub">Founder · Braj Gopika Seva Mission</div>
-        <p class="story-card-text">Carrying the torch of her revered master's tradition, Pujaniya Raseshwari Devi Ji brings the depth of Upanishadic philosophy to seekers with clarity, devotion and grace. Her discourses do not remain theoretical — they make the ancient wisdom of the Vedanta a living, breathing reality for every attendee.</p>
-      </div>
-      <div class="story-card">
-        <div class="story-card-number">04</div>
-        <div class="story-card-icon">❋</div>
-        <div class="story-card-title">The Upanishad Gyanamrit Discourse</div>
-        <div class="story-card-sub">Jharsuguda · April 2026 · Free Entry</div>
-        <p class="story-card-text">From 11th to 22nd April 2026, at Manmohan M E School Ground, Sarbahal, Jharsuguda — Pujaniya Raseshwari Devi Ji will illuminate the deepest teachings of the Upanishads. Every evening from 6:30 PM to 8:30 PM, attendees will receive the rare nectar of Vedantic wisdom in a devotional, accessible and transformative setting. Entry is free for all.</p>
+
+      <div class="char-card">
+        <div class="char-icon" style="font-size:1.4rem;">◈</div>
+        <div class="char-name">Bhakti Marg</div>
+        <div class="char-role">The path of loving devotion — the most direct and joyful road to God-realisation, as revealed by Jagadguru Kripalu Ji Maharaj</div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- ══════════ SNEAK PEEK VIDEOS ══════════ -->
 <section class="videos-section" id="videos">
@@ -994,8 +939,8 @@
       </div>
     </div>
     <div class="grid" style="margin-bottom:52px;">
-      <div class="card featured">
-        <div class="card-badge">✦ Featured · Youth Devotee</div>
+      <div class="card">
+        <div class="card-badge">Youth · 23</div>
         <div class="stars">★★★★★</div>
         <p class="card-text">"I had never attended a philosophical discourse before. But when Raseshwari Devi Ji began illuminating the Upanishads, I felt the ancient words enter not just my mind but my very being. For the first time in my life, I understood what it truly means to know the Self. Aham Brahmasmi — I am Brahman — felt real, not just philosophical."</p>
         <div class="card-divider"></div>
@@ -1041,36 +986,6 @@
         <div class="card-author">
           <div class="avatar av2">S</div>
           <div><div class="author-name">Sunita Gupta</div><div class="author-meta">48 · Homemaker · Mathura</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-badge">Professional · 44</div>
-        <div class="stars">★★★★★</div>
-        <p class="card-text">"I came with my family and we all left transformed. Devi Ji explained the Upanishadic parampara — from the ancient rishis to Adi Shankaracharya to Jagadguru Kripalu Ji Maharaj — in a way that made the whole tradition come alive. Every Indian family must experience this."</p>
-        <div class="card-divider"></div>
-        <div class="card-author">
-          <div class="avatar av4">V</div>
-          <div><div class="author-name">Vijay Pandey</div><div class="author-meta">44 · Business Owner · Mumbai</div></div>
-        </div>
-      </div>
-      <div class="card featured">
-        <div class="card-badge">✦ Featured · Long-time Devotee</div>
-        <div class="stars">★★★★★</div>
-        <p class="card-text">"Raseshwari Devi Ji doesn't just speak the Upanishads — she embodies them. Her bhav, her voice, her eyes — everything radiates the light of Vedantic truth. When she explains the mahavakya 'Aham Brahmasmi', you don't just understand it intellectually — you feel it as your own reality. She is a living instrument of Upanishadic grace."</p>
-        <div class="card-divider"></div>
-        <div class="card-author">
-          <div class="avatar av6">M</div>
-          <div><div class="author-name">Meena Tripathi</div><div class="author-meta">52 · Retired Teacher · Bhopal</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-badge">UK Devotee · 39</div>
-        <div class="stars">★★★★★</div>
-        <p class="card-text">"I attended the London programme and it was the most spiritually nourishing week of my life. Devi Ji's discourse on the Mandukya Upanishad made the teaching of 'Aham Brahmasmi' feel like a personal revelation. I came back a different person. Jai Shri Krishna."</p>
-        <div class="card-divider"></div>
-        <div class="card-author">
-          <div class="avatar av1">N</div>
-          <div><div class="author-name">Nisha Patel</div><div class="author-meta">39 · Nurse · London, UK</div></div>
         </div>
       </div>
     </div>
