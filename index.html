@@ -182,6 +182,7 @@
   .pill {
     background: rgba(217,119,6,0.15); border: 1px solid rgba(234,179,8,0.3);
     color: #FDE047; font-size: 0.88rem; padding: 6px 16px; border-radius: 20px; font-weight: 400;
+    text-align: center;
   }
 
   .hero-cta-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
@@ -206,8 +207,10 @@
     margin-top: 28px;
     color: rgba(253,224,71,0.4); font-size: 0.7rem; letter-spacing: 0.2em;
     text-transform: uppercase; z-index: 2; animation: bounce 2.5s ease-in-out infinite;
+    text-align: center;
+    width: 100%;
   }
-  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
 
   /* ══════════════════════════════
      UPANISHAD WISDOM STRIP
@@ -504,7 +507,7 @@
   ══════════════════════════════ */
   .testimonials-section { padding:88px 24px; background:var(--cream); }
   .testimonials-inner { max-width:1100px; margin:0 auto; }
-  .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; align-items:start; }
   @media(max-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
   @media(max-width:500px){ .grid{grid-template-columns:1fr} }
 
@@ -549,12 +552,12 @@
   .card-divider { height:1px; background:linear-gradient(to right,rgba(234,179,8,.5),transparent); margin-bottom:16px; opacity:.6; }
   .card-author { display:flex; align-items:center; gap:12px; }
   .avatar { width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1rem; flex-shrink:0; color:#fff; border:2px solid rgba(234,179,8,.3); }
-  .av1{background:linear-gradient(135deg,#6366F1,#4338CA)}
-  .av2{background:linear-gradient(135deg,#EAB308,#A07010)}
-  .av3{background:linear-gradient(135deg,#4F46E5,#3730A3)}
-  .av4{background:linear-gradient(135deg,#7C3AED,#5B21B6)}
-  .av5{background:linear-gradient(135deg,#4F46E5,#1E1B4B)}
-  .av6{background:linear-gradient(135deg,#D97706,#92400E)}
+  .av1{background:linear-gradient(135deg,#EAB308,#D97706)}
+  .av2{background:linear-gradient(135deg,#EAB308,#D97706)}
+  .av3{background:linear-gradient(135deg,#EAB308,#D97706)}
+  .av4{background:linear-gradient(135deg,#EAB308,#D97706)}
+  .av5{background:linear-gradient(135deg,#EAB308,#D97706)}
+  .av6{background:linear-gradient(135deg,#EAB308,#D97706)}
   .author-name { font-weight:600; font-size:.9rem; color:var(--indigo-mid); }
   .author-meta { font-size:.76rem; color:var(--muted); font-weight:300; }
 
@@ -822,7 +825,6 @@
     <p class="hero-desc">A rare and profound series of discourses on the ancient Upanishads — the crown jewels of Vedic wisdom — as illuminated by Pujaniya Raseshwari Devi Ji, in the sacred lineage of Jagadguru Shri Kripalu Ji Maharaj.</p>
     <div class="hero-pills">
       <span class="pill">✦ Upanishad Gyanamrit</span>
-      <span class="pill">☸ Kripalu Ji Maharaj Parampara</span>
       <span class="pill">◈ 25 Sept – 8 Oct, 2026</span>
       <span class="pill">✾ Janjgir, Chhattisgarh</span>
     </div>
@@ -1019,38 +1021,38 @@
     <div class="grid">
       <div class="card">
         <div class="stars">★★★★★</div>
-        <p class="card-text">"I had never attended a philosophical discourse before. But when Raseshwari Devi Ji began illuminating the Upanishads, I felt the ancient words enter not just my mind but my very being. For the first time in my life, I understood what it truly means to know the Self. Aham Brahmasmi — I am Brahman — felt real, not just philosophical."</p>
+        <p class="card-text">"Attending this discourse was a life-changing experience. Raseshwari Devi Ji's words touched my heart in ways I never imagined. The spiritual atmosphere created a profound impact on my understanding."</p>
         <div class="card-divider"></div>
         <div class="card-author">
           <div class="avatar av5">P</div>
-          <div><div class="author-name">Priya Agarwal</div><div class="author-meta">23 · MBA Student · Delhi</div></div>
+          <div><div class="author-name">Priya A.</div><div class="author-meta">Student · Janjgir</div></div>
         </div>
       </div>
       <div class="card">
         <div class="stars">★★★★★</div>
-        <p class="card-text">"Devi Ji's explanation of the Upanishadic mahavakyas — connecting ancient wisdom to everyday life — completely changed my understanding of Gyan and Bhakti. The discourse is beyond knowledge. It is a direct experience of the divine."</p>
+        <p class="card-text">"The depth of knowledge and spiritual wisdom shared during the discourse was truly remarkable. Devi Ji has a unique ability to connect ancient wisdom with our daily lives seamlessly and beautifully."</p>
         <div class="card-divider"></div>
         <div class="card-author">
           <div class="avatar av1">R</div>
-          <div><div class="author-name">Rohit Sharma</div><div class="author-meta">26 · Software Engineer · Pune</div></div>
+          <div><div class="author-name">Rohit S.</div><div class="author-meta">Software Engineer · Bilaspur</div></div>
         </div>
       </div>
       <div class="card">
         <div class="stars">★★★★★</div>
-        <p class="card-text">"BGSM is a sacred parampara rooted in the wisdom of Jagadguru Kripalu Ji Maharaj. Through Upanishad Gyanamrit, Raseshwari Devi Ji does not just give knowledge — she gives the living experience of the Self, exactly as the ancient rishis pointed to thousands of years ago."</p>
+        <p class="card-text">"Being part of the BGSM family and attending these discourses has been a blessing. The sacred atmosphere and Raseshwari Devi Ji's teachings brought immense peace and clarity to my journey."</p>
         <div class="card-divider"></div>
         <div class="card-author">
           <div class="avatar av3">K</div>
-          <div><div class="author-name">Kartik Joshi</div><div class="author-meta">35 · IT Manager · Bengaluru</div></div>
+          <div><div class="author-name">Kartik J.</div><div class="author-meta">Business Owner · Janjgir</div></div>
         </div>
       </div>
       <div class="card">
         <div class="stars">★★★★★</div>
-        <p class="card-text">"I have attended many spiritual programmes, but Raseshwari Devi Ji's Upanishad Gyanamrit is truly unique. Her depth of Vedantic knowledge, her bhav — it is as if the ancient rishis speak through her. You don't just hear the Upanishads, you feel their truth in every cell."</p>
+        <p class="card-text">"I have attended many spiritual programs, but this discourse stands out for its authenticity and depth. Raseshwari Devi Ji's divine presence creates an atmosphere where you feel truly connected."</p>
         <div class="card-divider"></div>
         <div class="card-author">
           <div class="avatar av2">S</div>
-          <div><div class="author-name">Sunita Gupta</div><div class="author-meta">48 · Homemaker · Mathura</div></div>
+          <div><div class="author-name">Sunita G.</div><div class="author-meta">Homemaker · Bilaspur</div></div>
         </div>
       </div>
     </div>
